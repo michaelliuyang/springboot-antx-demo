@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+  <group name="server">
+    <property name="server.config.uri" defaultValue="http://0.0.0.0:8888"/>
+    <property name="server.config.label" defaultValue="develop"/>
+  </group>
+
+  <group name="log">
+    <property name="loggerRoot" defaultValue="/data/log"/>
+    <property name="loggerAppName" defaultValue="sage-bigdata-collector-general"/>
+    <property name="logPattern"
+      defaultValue="%d{yyyy-MM-dd HH:mm:ss.SSS} [${loggerAppName},%X{X-B3-TraceId},%X{X-B3-SpanId},%thread] [%-5level] [%logger{10}] %msg%n"/>
+    <property name="logLevel" defaultValue="DEBUG"/>
+  </group>
+
+  <script>
+    <generate template="bootstrap.properties.vm" destfile="bootstrap.properties"/>
+    <generate template="logback.properties.vm" destfile="logback.properties"/>
+  </script>
+</config>

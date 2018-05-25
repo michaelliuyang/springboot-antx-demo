@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+  <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
+  <property resource="logback.properties"/>
+  ​
+  <property scope="context" name="logPath4Context" value="${loggerRoot}/${loggerAppName}"/>
+  <property scope="context" name="logPattern4Context" value="${logPattern}"/>
+  <property scope="context" name="loggerLevel4Context" value="${logLevel}}"/>
+
+  <appender name="STDOUT-APPENDER" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>${logPattern4Context}</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <appender name="INFO-APPENDER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>${logPath4Context}/info.log</file>
+    <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+      <fileNamePattern>${logPath4Context}/archive/info.log.%d{yyyyMMdd}.gz</fileNamePattern>
+      <maxHistory>7</maxHistory>
+    </rollingPolicy>
+    <encoder>
+      <pattern>${logPattern4Context}</pattern>
+      <charset>UTF-8</charset>
+    </encoder>
+  </appender>
+
+  <logger name="com.michael.springboot.demo" additivity="false">
+    <level value="${loggerLevel4Context}"/>
+    <appender-ref ref="INFO-APPENDER"/>
+  </logger>
+
+  <root level="INFO">
+    <appender-ref ref="STDOUT-APPENDER"/>
+    <appender-ref ref="INFO-APPENDER"/>
+  </root>
+</configuration>

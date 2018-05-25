@@ -1,0 +1,4 @@
+spring.application.name=springboot-antx-demo
+spring.profiles.active=base,drm
+spring.cloud.config.uri=${server_config_uri}
+spring.cloud.config.label=${server_config_label}

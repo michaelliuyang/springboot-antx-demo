@@ -1,0 +1,4 @@
+loggerRoot = ${loggerRoot}
+loggerAppName = ${loggerAppName}
+logPattern=${logPattern}
+logLevel=${logLevel}
