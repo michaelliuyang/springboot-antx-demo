@@ -7,8 +7,8 @@
   </group>
 
   <group name="log">
-    <property name="loggerRoot" defaultValue="/data/log"/>
-    <property name="loggerAppName" defaultValue="sage-bigdata-collector-general"/>
+    <property name="loggerRoot" defaultValue="/tmp/logs"/>
+    <property name="loggerAppName" defaultValue="springboot-antx-demo"/>
     <property name="logPattern"
       defaultValue="%d{yyyy-MM-dd HH:mm:ss.SSS} [${loggerAppName},%X{X-B3-TraceId},%X{X-B3-SpanId},%thread] [%-5level] [%logger{10}] %msg%n"/>
     <property name="logLevel" defaultValue="DEBUG"/>
